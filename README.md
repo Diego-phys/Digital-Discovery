@@ -45,3 +45,25 @@ Para ejecutar correctamente el programa deben seguirse los siguientes pasos:
 El programa no funciona si se tiene abierto el software WaveForms. Al ejecutarlo, tras unos segundos aparecerá la
 representación de la señal generada. El programa no finalizará hasta que se pare manualmente o se cierre la gráfica.
 Si el modo representación está desactivado, el programa finalizará tras generar el documento .txt o comparar.
+-------------------------------------------------------------------------------------------------------------------------
+# Pattern format
+
+The first step in generating custom patterns is to import them in the correct format. The Pattern module generates signal 
+patterns with the ''custom'' function if a Python list is included as an input variable. Therefore, the patterns must be 
+stored in a list. If one wants to generate more than one signal, they must go on different DIO pins, so one has to store them
+in separate lists. Also, for the patterns to be readable by the program, the bits must have no spaces or symbols between them. 
+Complying with these conditions depends on the format in which the patterns are generated a priori, since the strategy to follow
+to leave them with the necessary format to execute the program satisfactorily will depend on this. In our case, the patterns 
+arrive all together in a text file in which each column corresponds to a different signal from the input. Therefore, it is enough 
+to take each column from the file and put it into a Python list. This task is taken care of by the ''separa_list'' code. To make
+handling the patterns in code more convenient, it also puts all the signals into a list of lists.
+----------------------------------------------------------------------------------------------------------------------------
+El primer paso para generar patrones personalizados es importarlos con el formato correcto. El módulo Pattern genera patrones de 
+señal con la función ''custom'' si se incluye una lista de Python como variable de entrada. Por tanto, los patrones deben estar guardados
+en una lista. Si se quiere generar más de una señal, estas deben ir en pines DIO distintos para ser generadas, por lo que se deberán
+guardar en listas separadas. Además, para que los patrones sean legibles por el programa, los bits no deben tener espacios ni símbolos
+entre ellos. Cumplir con estas condiciones depende del formato en el que se generen los patrones a priori, ya que de ello dependerá la
+estrategia a seguir para dejarlos con el formato necesario para ejecutar satisfactoriamente el programa. En nuestro caso, los patrones 
+llegan todos juntos en un archivo de texto en el que cada columna se corresponde con una señal distinta de la entrada. Por tanto, basta 
+con coger cada columna del archivo y meterla en una lista de Python. De esta tarea se encarga el código ''separa\_listas''. Para que manejar
+los patrones en código sea más cómodo, introduce además todas las señales en una lista de listas.
